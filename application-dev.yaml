@@ -1,0 +1,9 @@
+logging:
+  level:
+    root: INFO
+    com.snapservice: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin123@localhost:8761/eureka/

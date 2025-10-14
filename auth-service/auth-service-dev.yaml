@@ -1,0 +1,49 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${AUTH_DB_NAME:auth_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_USERPASSWORD:postgres123}
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # redis:
+  #   host: localhost
+  #   port: 6379
+  #   password: '{cipher}AQB...'
+  #   timeout: 60000ms
+    
+  # kafka:
+  #   bootstrap-servers: localhost:9092
+  #   consumer:
+  #     group-id: auth-service
+  #     auto-offset-reset: earliest
+  #   producer:
+  #     key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  #     value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+jwt:
+  secret: ${JWT_SECRET:vD1z2kJt5sJ4yKzFq3W9pR1mT7xB2nU6gC8hE0aQ9vM4yT5pL7rD3zN1wH2uX5yV}
+  expiration: 86400000  # 24 hours
+  refresh-expiration: 604800000  # 7 days
+
+oauth:
+  google:
+    client-id: ${GOOGLE_CLIENT_ID}
+    client-secret: ${GOOGLE_CLIENT_SECRET}
+  # apple:
+  #   client-id: ${APPLE_CLIENT_ID}
+  #   client-secret: '{cipher}AQE...'
+
+app:
+  cors:
+    allowed-origins: ${DEVELOPMENT_ALLOWED_ORIGINS}

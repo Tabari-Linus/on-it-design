@@ -1,0 +1,33 @@
+# application.yml
+
+# Standard API Response Format
+api:
+  response:
+    include-timestamp: true
+    include-status-code: true
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,refresh
+      base-path: /actuator
+
+# Eureka
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+
+# Logging
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# WebClient (for inter-service communication)
+webclient:
+  connect-timeout: 5000
+  read-timeout: 10000
+  write-timeout: 10000
