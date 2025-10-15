@@ -1,11 +1,37 @@
-server:
-  port: 8082
+spring:
+  application:
+    name: auth-service
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
-    lease-expiration-duration-in-seconds: 90
-    lease-renewal-interval-in-seconds: 30
+server:
+  port: 8081
+
+jwt:
+  secret: vD1z2kJt5sJ4yKzFq3W9pR1mT7xB2nU6gC8hE0aQ9vM4yT5pL7rD3zN1wH2uX5yV
+  expiration: 86400000 # 24 hours
+  refresh-expiration: 604800000 # 7 days
+
+app:
+  frontend:
+    url: http://localhost:3000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_db
+    username: postgres
+    password: Postgres123
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: tabarishadow@gmail.com
+    password: pivk yfng affl fcbd
+
+logging:
+  level:
+    com.proximityfinder: DEBUG
+    org.hibernate.SQL: DEBUG

@@ -1,0 +1,28 @@
+spring:
+  config:
+    activate:
+      on-profile: staging
+
+server:
+  port: 8080
+
+jwt:
+  secret: ${JWT_SECRET}
+
+cors:
+  allowed-origins: https://staging.proximityfinder.com
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL}
+
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
+  password: ${REDIS_PASSWORD}
+
+logging:
+  level:
+    com.snapservice: INFO
+    org.springframework.cloud.gateway: INFO

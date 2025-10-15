@@ -1,0 +1,31 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+server:
+  port: 8080
+
+jwt:
+  secret: ${JWT_SECRET}
+
+cors:
+  allowed-origins: https://proximityfinder.com
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL}
+
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
+  password: ${REDIS_PASSWORD}
+
+logging:
+  level:
+    root: WARN
+    com.snapservice: INFO
+    org.springframework.cloud.gateway: WARN
+  file:
+    name: /var/log/snapservice/api-gateway.log

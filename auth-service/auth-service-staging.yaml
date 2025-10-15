@@ -1,7 +1,7 @@
 spring:
   config:
     activate:
-      on-profile: prod
+      on-profile: staging
 
 server:
   port: 8081
@@ -13,7 +13,7 @@ jwt:
 
 app:
   frontend:
-    url: https://proximityfinder.com
+    url: https://staging.proximityfinder.com
 
 spring:
   datasource:
@@ -34,8 +34,5 @@ spring:
 
 logging:
   level:
-    root: WARN
     com.proximityfinder: INFO
-    org.hibernate.SQL: WARN
-  file:
-    name: /var/log/proximityfinder/auth-service.log
+    org.hibernate.SQL: INFO
